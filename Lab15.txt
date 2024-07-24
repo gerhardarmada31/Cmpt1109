@@ -1,0 +1,165 @@
+#include <iostream> 
+
+using namespace std; 
+
+  
+
+int main() 
+
+{ 
+
+const int size=6; 
+
+int minIndex; 
+
+string minValue; 
+
+int currentSize = size - 1; 
+
+string arrayName[size]; 
+
+string userNameInput; 
+
+  
+
+//Binary Search 
+
+int first = 0; 
+
+int middle; 
+
+int position = -1; 
+
+bool isSearchFound = 0; 
+
+  
+
+for (int x = 0; x < size; x++) 
+
+{ 
+
+cout << "Enter Name: "; 
+
+cin >> arrayName[x]; 
+
+} 
+
+  
+
+for (int y = 0; y < size; y++) 
+
+{ 
+
+cout << arrayName[y] << endl; 
+
+} 
+
+  
+
+  
+
+  
+
+for (int init = 0; init < (currentSize); init++) 
+
+{ 
+
+//get min value 
+
+minIndex = init; 
+
+minValue = arrayName[init]; 
+
+  
+
+for (int index = init + 1; index < size; index++) 
+
+{ 
+
+//Finds the minimum value 
+
+if (arrayName[index] > minValue) 
+
+{ 
+
+minValue = arrayName[index]; 
+
+minIndex = index; 
+
+} 
+
+} 
+
+swap(arrayName[minIndex], arrayName[init]); 
+
+} 
+
+  
+
+cout << endl << "Selection Sorted" << endl; 
+
+for (int y = 0; y < size; y++) 
+
+{ 
+
+cout << arrayName[y] << endl; 
+
+} 
+
+  
+
+cout << "Enter Name to Search" << endl; 
+
+cin >> userNameInput; 
+
+  
+
+while (!isSearchFound && first <= currentSize) 
+
+{ 
+
+middle = (first + currentSize) / 2; 
+
+  
+
+//If the name is found; 
+
+if (arrayName[middle] == userNameInput) 
+
+{ 
+
+isSearchFound = 1; 
+
+position = middle; 
+
+} 
+
+//if the value is greater you move it to the left 
+
+else if (arrayName[middle] < userNameInput) 
+
+{ 
+
+currentSize = middle - 1; 
+
+} 
+
+else 
+
+{ 
+
+first = middle + 1; 
+
+} 
+
+} 
+
+//cout << "Position value " << position; 
+
+cout << userNameInput << " is in " << position+1; 
+
+} 
+
+ 
+
+ 
